@@ -4,6 +4,9 @@ var CONFIGS = {
 	'Home': {
 		'bgColor': 'f66a0c'
 	},
+	'ProfileSelector': {
+		'bgColor': '000000'	
+	},
 	'Default': {
 		'bgColor': 'a8a8a8'
 	}
