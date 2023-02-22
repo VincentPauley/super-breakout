@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/util/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/util/DebuggerPanel.tscn" type="PackedScene" id=2]
 
 [node name="Home" type="Node2D"]
 
@@ -13,3 +14,9 @@ margin_right = 568.0
 margin_bottom = 255.0
 text = "Home
 "
+
+[node name="DebuggerPanel" parent="." instance=ExtResource( 2 )]
+margin_left = 31.0
+margin_top = 33.0
+margin_right = 415.0
+margin_bottom = 471.0
