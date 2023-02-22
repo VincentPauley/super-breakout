@@ -7,6 +7,9 @@ var CONFIGS = {
 	'ProfileSelector': {
 		'bgColor': '000000'	
 	},
+	'ProfileMaker': {
+		'bgColor': 'f89a0c'	
+	},
 	'Default': {
 		'bgColor': 'a8a8a8'
 	}

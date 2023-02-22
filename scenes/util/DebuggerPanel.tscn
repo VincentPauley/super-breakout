@@ -8,12 +8,12 @@ margin_bottom = 438.0
 color = Color( 0.176471, 0.176471, 0.176471, 1 )
 
 [node name="SceneLink" parent="." instance=ExtResource( 1 )]
-position = Vector2( -88, -8 )
+position = Vector2( -88, -16 )
 SceneName = "ProfileMaker"
 SceneLocation = "res://scenes/screens/ProfileMaker.tscn"
 
 [node name="SceneLink2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -88, 40 )
+position = Vector2( -88, 32 )
 SceneName = "ProfileSelector"
 SceneLocation = "res://scenes/screens/ProfileSelector.tscn"
 
