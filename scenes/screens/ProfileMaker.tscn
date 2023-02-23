@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/util/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/util/HomeButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/ProfileMaker.gd" type="Script" id=3]
+[ext_resource path="res://fonts/Lobster-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/PlayerNameEdit.gd" type="Script" id=5]
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 4 )
 
 [node name="ProfileMaker" type="Node"]
 script = ExtResource( 3 )
@@ -20,3 +28,9 @@ margin_left = 0.511993
 margin_top = -0.200012
 margin_right = 0.511963
 margin_bottom = 0.199982
+theme = SubResource( 2 )
+custom_colors/selection_color = Color( 1, 0.211765, 0.211765, 1 )
+custom_colors/font_color = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/background_color = Color( 0.815686, 0.309804, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 5 )

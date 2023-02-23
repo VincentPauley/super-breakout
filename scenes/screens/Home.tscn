@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/util/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/util/DebuggerPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/Lobster-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/Home.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 3 )
 
 [node name="Home" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
@@ -18,10 +24,17 @@ margin_right = 768.0
 margin_bottom = 600.0
 color = Color( 0.866667, 0.337255, 0.0156863, 1 )
 
-[node name="GameTitle" type="Label" parent="MainContent"]
-margin_left = -256.0
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 320.0
+margin_top = 192.0
+margin_right = 704.0
+margin_bottom = 236.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+
+[node name="GameTitle" type="Label" parent="."]
 margin_top = 16.0
-margin_right = 768.0
+margin_right = 1024.0
 margin_bottom = 112.0
 custom_fonts/font = SubResource( 1 )
 text = "Super Breakout"
@@ -29,6 +42,7 @@ align = 1
 valign = 1
 
 [node name="DebuggerPanel" parent="." instance=ExtResource( 2 )]
+visible = false
 margin_left = 31.0
 margin_top = 33.0
 margin_right = 415.0
