@@ -27,6 +27,13 @@ My homemade version of the game "Breakout" built with the Godot engine.
 
 [ ] - home
 [ ] - profile maker
+
+	> 
+
+	* Enter Name
+	* confirm unique
+	* save profile to disk
+
 [ ] - profile selector
 [ ] - high scores
 
