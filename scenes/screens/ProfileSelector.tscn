@@ -1,18 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/util/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/util/HomeButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/util/PlayerSelector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/Lobster-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 4 )
 
 [node name="ProfileSelector" type="Node"]
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 248.0
-margin_top = 48.0
-margin_right = 345.0
-margin_bottom = 79.0
-text = "Profile Selector
+margin_top = 80.0
+margin_right = 1024.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 1 )
+text = "Choose a File
 "
+align = 1
+valign = 1
 
 [node name="HomeButton" parent="." instance=ExtResource( 2 )]
+
+[node name="PlayerOneTile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, 128 )
+playerNumber = 1
+
+[node name="PlayerTwoTile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 536, 128 )
+playerNumber = 2
+
+[node name="PlayerThreeTile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, 368 )
+playerNumber = 3
+
+[node name="PlayerFourTile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 536, 368 )
+playerNumber = 4
