@@ -5,12 +5,7 @@ onready var Button = $Button
 
 func _ready():
 	Button.connect('pressed', self, '_profile_chosen')
-	
-func _profile_chosen():
-	
-#	SaveGameInterface.game_data
 
-	if playerNumber == 1:
-		print('it was player 1')
-	# todo: continue
-#	print('selected profile: ', playerNumber)
+func _profile_chosen():
+	Globals.active_profile_edit = playerNumber
+	get_tree().change_scene("res://scenes/screens/ProfileMaker.tscn")

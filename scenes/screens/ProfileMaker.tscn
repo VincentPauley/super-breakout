@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/util/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/util/HomeButton.tscn" type="PackedScene" id=2]
@@ -10,6 +10,14 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
 font_data = ExtResource( 4 )
 
 [node name="ProfileMaker" type="Node"]
@@ -34,3 +42,19 @@ custom_colors/font_color = Color( 0.952941, 0.952941, 0.952941, 1 )
 custom_colors/background_color = Color( 0.815686, 0.309804, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 5 )
+
+[node name="NameLabel" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 216.0
+margin_right = 496.0
+margin_bottom = 257.0
+custom_fonts/font = SubResource( 3 )
+text = "Enter your name:"
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 560.0
+margin_top = 344.0
+margin_right = 704.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 4 )
+text = "Play!"
