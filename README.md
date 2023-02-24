@@ -28,13 +28,14 @@ My homemade version of the game "Breakout" built with the Godot engine.
 [ ] - home
 [ ] - profile maker
 
-	> 
-
-	* Enter Name
+	[X] Enter Name
 	* confirm unique
-	* save profile to disk
+	[X] save profile to disk
+	[X] clear save file 
 
 [ ] - profile selector
+	[ ] - UI differentiate empty and set files
+	[ ] - confirmation modal for delete
 [ ] - high scores
 
 

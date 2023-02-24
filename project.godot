@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 ScreenConfigs="*res://scripts/screen_configs.gd"
 SaveGameInterface="*res://scripts/save_game_interface.gd"
 Globals="*res://scripts/globals.gd"
+LevelHud="*res://scripts/levelHUD.gd"
 
 [gui]
 

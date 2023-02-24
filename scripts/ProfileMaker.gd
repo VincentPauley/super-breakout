@@ -17,6 +17,6 @@ func _save_and_play():
 	SaveGameInterface.game_data[profile_id] = {
 		'playerName' : playerName,
 		'highestLevelReached': 1
-	} 
-	print(SaveGameInterface.game_data)
-	print('save profile: ', playerName, ' to: ', profile_id)
+	}
+	SaveGameInterface.save_data()
+	get_tree().change_scene("res://scenes/screens/LevelOne.tscn")

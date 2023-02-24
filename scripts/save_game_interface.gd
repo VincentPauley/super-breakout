@@ -6,7 +6,7 @@ var game_data = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_data()
-	
+
 func save_data():
 	var file = File.new()
 	file.open(SAVE_FILE, file.WRITE)
@@ -16,7 +16,6 @@ func save_data():
 func load_data():
 	var file = File.new()
 	if not file.file_exists(SAVE_FILE):
-		print('saving new file...')
 		# initial save here
 		game_data = {
 			'profile_1': null,

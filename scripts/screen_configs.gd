@@ -10,6 +10,9 @@ var CONFIGS = {
 	'ProfileMaker': {
 		'bgColor': 'f89a0c'	
 	},
+	'LevelOne': {
+		'bgColor': 'DA70D6'
+	},
 	'Default': {
 		'bgColor': 'a8a8a8'
 	}
