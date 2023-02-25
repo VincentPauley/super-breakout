@@ -10,3 +10,4 @@ func reset_lives_indicator():
 func _ready():
 	PlayerName.text = Globals.get_active_player_name()
 	reset_lives_indicator()
+
