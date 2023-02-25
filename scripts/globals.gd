@@ -10,4 +10,3 @@ func get_active_player_name():
 		return 'Guest'
 	var currentSaveData = SaveGameInterface.game_data['profile_' + str(active_profile)].playerName
 	return currentSaveData
-
