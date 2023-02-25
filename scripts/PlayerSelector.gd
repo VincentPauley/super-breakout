@@ -20,6 +20,7 @@ func _check_for_existing_player():
 func _profile_chosen():
 	Globals.active_profile = playerNumber
 	if save_exists:
+		Globals.current_life_count = 3
 		get_tree().change_scene("res://scenes/screens/LevelOne.tscn")
 	else:
 		Globals.active_profile_edit = playerNumber
