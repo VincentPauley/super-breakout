@@ -11,7 +11,7 @@ const SPEED = 400
 func _ready():
 	paddleWidth = PlayerRect.rect_size.x
 	screenWidth = get_viewport_rect().size.x
-	
+	position.x = (screenWidth / 2) - (paddleWidth / 2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO
