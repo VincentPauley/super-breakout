@@ -5,6 +5,8 @@ var current_life_count = 0
 
 var active_profile_edit = 0
 
+func _use_life():
+	current_life_count = current_life_count -1
 
 # Called when the node enters the scene tree for the first time.
 
