@@ -12,6 +12,10 @@
 [node name="LevelHUD" parent="." instance=ExtResource( 2 )]
 
 [node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 232, 264 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -328 )
+position = Vector2( -8, -328 )
