@@ -2,6 +2,9 @@ extends Area2D
 
 signal ball_lost
 
+export var xPos = 0
+export var yPos = 0
+
 onready var ColorRect = $ColorRect
 
 const BALL_SPEED = 400
@@ -36,6 +39,12 @@ func _handle_ball_lost():
 		Globals._use_life()
 		emit_signal('ball_lost')
 		queue_free()
+
+func set_y_pos(y: int):
+	position.y = y
+
+func set_x_pos(x):
+	position.x = x
 
 func _physics_process(delta):
 	handle_x_reflection()
