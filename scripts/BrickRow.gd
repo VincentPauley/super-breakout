@@ -6,6 +6,7 @@ func _add_brick(position: Vector2):
 	var newBrick = BrickScene.instance()
 	add_child(newBrick)
 	newBrick.set_pos(position)
+	newBrick.set_dimensions(100, 20)
 	
 const brickData = [
 	Vector2(5, 50),
