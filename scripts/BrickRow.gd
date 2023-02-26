@@ -1,3 +1,5 @@
+# TODO: deprecate
+
 extends Area2D
 
 var BrickScene = preload("res://scenes/util/Brick.tscn")
