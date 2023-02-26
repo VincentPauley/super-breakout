@@ -19,6 +19,9 @@ const brickData = [
 	{ 'position': Vector2(60, 200), 'dimensions': { 'width': 150, 'height': 16} }
 ]
 
+#landed on: amount: 15, brick width: 64
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(get_viewport_rect()) # calc the directions from here if ya want
