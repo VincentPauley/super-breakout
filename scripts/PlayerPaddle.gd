@@ -7,6 +7,13 @@ var screenWidth
 
 const SPEED = 400
 
+func get_paddle_center_x():
+	return position.x + (paddleWidth / 2)
+
+# this no worky yet - I think positioning is off from paddle
+#func get_paddle_top():
+#	return PlayerRect.position.y
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	paddleWidth = PlayerRect.rect_size.x

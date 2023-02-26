@@ -9,7 +9,7 @@ onready var ColorRect = $ColorRect
 
 const BALL_SPEED = 400
 
-var yDirection = 1
+var yDirection = -1
 var xDirection = 1
 
 var screenWidth
