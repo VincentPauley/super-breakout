@@ -11,7 +11,7 @@ var CONFIGS = {
 		'bgColor': 'f89a0c'	
 	},
 	'LevelOne': {
-		'bgColor': 'DA70D6'
+		'bgColor': 'd68d01'
 	},
 	'Default': {
 		'bgColor': 'a8a8a8'
