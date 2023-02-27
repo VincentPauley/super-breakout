@@ -2,15 +2,18 @@ extends Area2D
 
 signal ball_lost
 
-export var xPos = 0
-export var yPos = 0
+export var xPos := 0
+export var yPos := 0
 
-onready var ColorRect = $ColorRect
+onready var ColorRect := $ColorRect
 
-const BALL_SPEED = 400
+const BALL_SPEED_BASE := 350
 
-var yDirection = -1
-var xDirection = 1
+var BALL_SPEED_X := BALL_SPEED_BASE
+const BALL_SPEED_Y := BALL_SPEED_BASE
+
+var yDirection := -1
+var xDirection := 1
 
 var screenWidth
 var screenHeight
@@ -24,7 +27,10 @@ func _ready():
 	ballWidth = ColorRect.rect_size.x
 	print(screenHeight)
 
-func _on_area_entered(_area):
+func _on_area_entered(area):
+	if area.name == 'PlayerPaddle':
+		var xDiff = position.x - area.get_paddle_center_x()
+		BALL_SPEED_X = BALL_SPEED_BASE * ((xDiff) * .02 + 1)
 	yDirection = yDirection * -1
 
 func handle_x_reflection():
@@ -50,16 +56,12 @@ func _physics_process(delta):
 	handle_x_reflection()
 	_handle_ball_lost()
 	var velocity = Vector2.ZERO
-	velocity.y += yDirection
-	velocity.x += xDirection
-
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * BALL_SPEED
+	velocity.y += yDirection * BALL_SPEED_Y
+	velocity.x += xDirection * BALL_SPEED_X
 
 	position.y += velocity.y * delta
 	position.x += velocity.x * delta
-	
-	
+
 #func _process(delta):
 #	var fps = Engine.get_frames_per_second()
 	
