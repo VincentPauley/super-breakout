@@ -10,6 +10,7 @@ const SPEED = 400
 func get_paddle_center_x():
 	return position.x + (paddleWidth / 2)
 
+
 # this no worky yet - I think positioning is off from paddle
 #func get_paddle_top():
 #	return PlayerRect.position.y
