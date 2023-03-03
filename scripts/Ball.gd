@@ -35,9 +35,11 @@ func _on_area_entered(area):
 
 func handle_x_reflection():
 	if xDirection > 0 and position.x > screenWidth - ballWidth:
+		print('should be reflecting!')
 		xDirection = xDirection * -1
 
 	if xDirection < 0 and position.x < 0:
+		print('should be reflecting!')
 		xDirection = xDirection * -1
 
 func _handle_ball_lost():
@@ -53,7 +55,7 @@ func set_x_pos(x):
 	position.x = x
 
 func _physics_process(delta):
-	handle_x_reflection()
+	
 	_handle_ball_lost()
 	var velocity = Vector2.ZERO
 	velocity.y += yDirection * BALL_SPEED_Y
@@ -61,6 +63,8 @@ func _physics_process(delta):
 
 	position.y += velocity.y * delta
 	position.x += velocity.x * delta
+	
+	handle_x_reflection()
 
 #func _process(delta):
 #	var fps = Engine.get_frames_per_second()
