@@ -28,8 +28,12 @@ func _requesting_left() -> bool:
 
 func _requesting_right() -> bool:
 	return Input.is_action_pressed('right')
-	
+
 var acceleration := MIN_ACCELERATION
+
+func get_collision_offset(ball_pos: float) -> float:
+	var paddle_center :float = position.x + _paddle_width / 2
+	return abs(paddle_center - ball_pos)
 
 func _adjust_acceleration(motion: bool) -> void:
 	if motion and acceleration < MAX_ACCELERATION:
@@ -45,13 +49,13 @@ func _modify_x_pos(velo: float) -> void:
 	var _paddle_min = 0
 	var _paddle_max = SCREEN_WIDTH - _paddle_width
 	
+	# TODO: maybe a better way to do this with clamp?
 	if new_pos < _paddle_min:
 		new_pos = _paddle_min
 	if new_pos > _paddle_max:
 		new_pos = _paddle_max
 	
 	position.x = new_pos
-#	clamp(position.x, 0, SCREEN_WIDTH)
 
 func _physics_process(delta):
 	var base_velo = BASE_SPEED * delta

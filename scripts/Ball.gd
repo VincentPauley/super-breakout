@@ -28,10 +28,10 @@ func _ready():
 
 func _on_area_entered(area):
 	if area.name == 'PlayerPaddle':
-		print('>> Hit the paddle')
-#		var xDiff = position.x - area.get_paddle_center_x()
-
-#		BALL_SPEED_X = BALL_SPEED_BASE * ((xDiff) * .02 + 1)
+		var offset: float = area.get_collision_offset(position.x)
+		# vary the x speed based on where the ball hits the paddle
+		BALL_SPEED_X = BALL_SPEED_BASE * (offset * .05 + 1)
+		
 		# for paddle, if bottom of ball is lower than paddle top it mean an x reflection rather than 
 	yDirection = yDirection * -1
 
