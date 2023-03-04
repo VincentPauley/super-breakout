@@ -15,7 +15,7 @@ func _create_ball_instance():
 	add_child(newBall)
 #	print(PlayerPaddle.get_paddle_top())
 	newBall.set_y_pos(400)
-	newBall.set_x_pos(PlayerPaddle.get_paddle_center_x())
+#	newBall.set_x_pos(PlayerPaddle.get_paddle_center_x())
 	newBall.connect('ball_lost', self, '_react_ball_lost')
 
 func _process(delta):

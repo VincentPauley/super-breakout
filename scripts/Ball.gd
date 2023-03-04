@@ -27,19 +27,18 @@ func _ready():
 	ballWidth = ColorRect.rect_size.x
 
 func _on_area_entered(area):
-	if area.name == 'PlayerPaddle':
-		var xDiff = position.x - area.get_paddle_center_x()
-		BALL_SPEED_X = BALL_SPEED_BASE * ((xDiff) * .02 + 1)
+#	if area.name == 'PlayerPaddle2':
+#		var xDiff = position.x - area.get_paddle_center_x()
+	print(area.name)
+#		BALL_SPEED_X = BALL_SPEED_BASE * ((xDiff) * .02 + 1)
 		# for paddle, if bottom of ball is lower than paddle top it mean an x reflection rather than 
 	yDirection = yDirection * -1
 
 func handle_x_reflection():
 	if xDirection > 0 and position.x > screenWidth - ballWidth:
-		print('should be reflecting!')
 		xDirection = xDirection * -1
 
 	if xDirection < 0 and position.x < 0:
-		print('should be reflecting!')
 		xDirection = xDirection * -1
 
 func _handle_ball_lost():

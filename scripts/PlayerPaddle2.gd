@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 # TODOs:
 # [X] - need to decelerate on stops
