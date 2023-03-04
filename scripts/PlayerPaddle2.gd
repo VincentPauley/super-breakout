@@ -1,8 +1,14 @@
 extends KinematicBody2D
 
+# TODOs:
+# [X] - need to decelerate on stops
+# [ ] - contain paddle in scene
+
 const MIN_ACCELERATION := 1.0
 const MAX_ACCELERATION := 20.0
 const ACCELERATION_FACTOR := 0.75
+
+var _last_dir = ''
 
 func _ready():
 	position.x = 0
@@ -24,13 +30,25 @@ func _adjust_acceleration(motion: bool) -> void:
 	clamp(acceleration, MIN_ACCELERATION, MAX_ACCELERATION)
 
 func _physics_process(delta):
-	var requesting_left = _requesting_left()
-	var requesting_right = _requesting_right()
+	var requesting_left: bool = _requesting_left()
+	var requesting_right: bool = _requesting_right()
 	
-	_adjust_acceleration(requesting_left || requesting_right)
+	var _requesting_movement: bool = requesting_left || requesting_right
+	
+	_adjust_acceleration(_requesting_movement)
 
-	if requesting_left:
-		position.x -= 50 * delta * acceleration
-	if requesting_right:
-		position.x += 50 * delta * acceleration
+	# handle input movement
+	if _requesting_movement:
+		if requesting_left && !requesting_right:
+			position.x -= 50 * delta * acceleration
+			_last_dir = 'left'
+		if requesting_right && !requesting_left:
+			position.x += 50 * delta * acceleration
+			_last_dir = 'right'
 
+	# handle deceleration after input
+	if !_requesting_movement && acceleration > MIN_ACCELERATION:
+		if _last_dir == 'right':
+			position.x += 50 * delta * acceleration
+		if _last_dir == 'left':
+			position.x -= 50 * delta * acceleration
