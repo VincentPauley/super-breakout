@@ -58,6 +58,7 @@ func _modify_x_pos(velo: float) -> void:
 	position.x = new_pos
 
 func _physics_process(delta):
+	if Globals.paused: return
 	var base_velo = BASE_SPEED * delta
 	var requesting_left: bool = _requesting_left()
 	var requesting_right: bool = _requesting_right()

@@ -55,7 +55,7 @@ func set_x_pos(x):
 	position.x = x
 
 func _physics_process(delta):
-	
+	if Globals.paused: return
 	_handle_ball_lost()
 	var velocity = Vector2.ZERO
 	velocity.y += yDirection * BALL_SPEED_Y
@@ -65,8 +65,3 @@ func _physics_process(delta):
 	position.x += velocity.x * delta
 	
 	handle_x_reflection()
-
-#func _process(delta):
-#	var fps = Engine.get_frames_per_second()
-	
-	

@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/util/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/util/LevelHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Lobster-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://components/blocks/BlockRow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/LevelOne.gd" type="Script" id=5]
 [ext_resource path="res://scenes/util/PlayerPaddle2.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 71
+font_data = ExtResource( 3 )
 
 [node name="LevelOne" type="Node"]
 script = ExtResource( 5 )
@@ -18,3 +23,28 @@ position = Vector2( 0, 64 )
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 6 )]
 position = Vector2( 168, 544 )
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.27451 )
+
+[node name="PauseTextModal" type="ColorRect" parent="."]
+visible = false
+margin_left = 320.0
+margin_top = 128.0
+margin_right = 704.0
+margin_bottom = 256.0
+color = Color( 0, 0, 0, 0.552941 )
+
+[node name="PauseText" type="Label" parent="."]
+visible = false
+margin_left = 320.0
+margin_top = 128.0
+margin_right = 704.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "Paused"
+align = 1
+valign = 1
