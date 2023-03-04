@@ -3,11 +3,11 @@ extends Area2D
 # TODOs:
 # [X] - need to decelerate on stops
 # [ ] - acceleration needs to reset to min on direction change 
-# [ ] - contain paddle in scene
+# [X] - contain paddle in scene
 
 const MIN_ACCELERATION := 1.0
-const MAX_ACCELERATION := 20.0
-const ACCELERATION_FACTOR := 0.75
+const MAX_ACCELERATION := 18.0
+const ACCELERATION_FACTOR := 0.65
 const BASE_SPEED := 70
 
 onready var SCREEN_WIDTH := get_viewport_rect().size.x
@@ -16,9 +16,12 @@ onready var ColorRect := $ColorRect
 var _last_dir = ''
 var _paddle_width := 0
 
+func _center_paddle():
+	position.x = (SCREEN_WIDTH / 2) - (_paddle_width / 2)
+
 func _ready():
-	position.x = 0
 	_paddle_width = ColorRect.rect_size.x
+	_center_paddle()
 
 func _requesting_left() -> bool:
 	return Input.is_action_pressed('left')
@@ -32,7 +35,7 @@ func _adjust_acceleration(motion: bool) -> void:
 	if motion and acceleration < MAX_ACCELERATION:
 		acceleration = acceleration + ACCELERATION_FACTOR
 	if !motion and acceleration > MIN_ACCELERATION:
-		acceleration = acceleration - ACCELERATION_FACTOR * 2 # decelerate twice as fast
+		acceleration = acceleration - ACCELERATION_FACTOR * 1.5 # decelerate twice as fast
 	
 	clamp(acceleration, MIN_ACCELERATION, MAX_ACCELERATION)
 
@@ -40,11 +43,12 @@ func _modify_x_pos(velo: float) -> void:
 	var new_pos = position.x + velo * acceleration
 	
 	var _paddle_min = 0
+	var _paddle_max = SCREEN_WIDTH - _paddle_width
 	
 	if new_pos < _paddle_min:
 		new_pos = _paddle_min
-	if new_pos > SCREEN_WIDTH - _paddle_width:
-		new_pos = SCREEN_WIDTH - _paddle_width
+	if new_pos > _paddle_max:
+		new_pos = _paddle_max
 	
 	position.x = new_pos
 #	clamp(position.x, 0, SCREEN_WIDTH)
