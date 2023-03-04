@@ -11,11 +11,14 @@ const ACCELERATION_FACTOR := 0.75
 const BASE_SPEED := 70
 
 onready var SCREEN_WIDTH := get_viewport_rect().size.x
+onready var ColorRect := $ColorRect
 
 var _last_dir = ''
+var _paddle_width := 0
 
 func _ready():
 	position.x = 0
+	_paddle_width = ColorRect.rect_size.x
 
 func _requesting_left() -> bool:
 	return Input.is_action_pressed('left')
@@ -35,7 +38,16 @@ func _adjust_acceleration(motion: bool) -> void:
 
 func _modify_x_pos(velo: float) -> void:
 	var new_pos = position.x + velo * acceleration
+	
+	var _paddle_min = 0
+	
+	if new_pos < _paddle_min:
+		new_pos = _paddle_min
+	if new_pos > SCREEN_WIDTH - _paddle_width:
+		new_pos = SCREEN_WIDTH - _paddle_width
+	
 	position.x = new_pos
+#	clamp(position.x, 0, SCREEN_WIDTH)
 
 func _physics_process(delta):
 	var base_velo = BASE_SPEED * delta

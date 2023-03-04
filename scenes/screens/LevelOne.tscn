@@ -15,11 +15,10 @@ script = ExtResource( 5 )
 [node name="LevelHUD" parent="." instance=ExtResource( 2 )]
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( -8, -328 )
 
 [node name="BlockRow" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 64 )
 
 [node name="PlayerPaddle2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 144, 272 )
+position = Vector2( 168, 544 )
