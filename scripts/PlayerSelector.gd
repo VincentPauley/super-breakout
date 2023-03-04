@@ -21,7 +21,11 @@ func _profile_chosen():
 	Globals.active_profile = playerNumber
 	if save_exists:
 		Globals.current_life_count = 3
-		get_tree().change_scene("res://scenes/screens/LevelOne.tscn")
+		var error_code := get_tree().change_scene("res://scenes/screens/LevelOne.tscn")
+		if error_code:
+			print_debug(error_code)
 	else:
 		Globals.active_profile_edit = playerNumber
-		get_tree().change_scene("res://scenes/screens/ProfileMaker.tscn")
+		var error_code := get_tree().change_scene("res://scenes/screens/ProfileMaker.tscn")
+		if error_code:
+			print_debug(error_code)

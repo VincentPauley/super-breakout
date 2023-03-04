@@ -11,5 +11,6 @@ func _ready():
 	button.connect('pressed', self, 'handle_scene_change')
 	
 func handle_scene_change():
-	get_tree().change_scene(SceneLocation)
-
+	var error_code := get_tree().change_scene(SceneLocation)
+	if error_code:
+		print_debug(error_code)

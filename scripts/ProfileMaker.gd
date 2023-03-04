@@ -19,4 +19,6 @@ func _save_and_play():
 		'highestLevelReached': 1
 	}
 	SaveGameInterface.save_data()
-	get_tree().change_scene("res://scenes/screens/LevelOne.tscn")
+	var error_code := get_tree().change_scene("res://scenes/screens/LevelOne.tscn")
+	if error_code:
+		print_debug(error_code)
