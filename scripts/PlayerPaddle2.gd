@@ -22,6 +22,10 @@ func _center_paddle():
 func _ready():
 	_paddle_width = ColorRect.rect_size.x
 	_center_paddle()
+	connect('area_entered', self, "_detect_collision")
+	
+func _detect_collision():
+	print('found it...')
 
 func _requesting_left() -> bool:
 	return Input.is_action_pressed('left')
@@ -62,7 +66,7 @@ func _physics_process(delta):
 	var base_velo = BASE_SPEED * delta
 	var requesting_left: bool = _requesting_left()
 	var requesting_right: bool = _requesting_right()
-	
+
 	var _requesting_movement: bool = requesting_left || requesting_right
 	
 	_adjust_acceleration(_requesting_movement)
